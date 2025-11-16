@@ -22,6 +22,7 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.zakat_toolbar);
         setSupportActionBar(myToolbar);
 
+        //Enable clickable hyperlink for Github URL
         TextView link = findViewById(R.id.tvUrl);
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
