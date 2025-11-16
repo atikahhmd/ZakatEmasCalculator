@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Zakat Emas Calculator</string>
     <string name="copyright">Copyright © 2025 Atikah</string>
-    <string name="about_text">This is a simple tool that calculates your zakat on gold based on weight, type, and current price.</string>
+    <string name="about_text">This is a tool that calculates your zakat on gold based on weight, type, and current price.</string>
 </resources>
