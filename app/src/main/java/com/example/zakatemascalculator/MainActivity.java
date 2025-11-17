@@ -63,38 +63,48 @@ public class MainActivity extends AppCompatActivity {
     //Method to calculate zakat
     private void calculateZakat() {
 
-        //Check empty inputs - if empty display error message
-        if (etWeight.getText().toString().isEmpty() || etValue.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please enter all inputs", Toast.LENGTH_SHORT).show();
-            return;
+        try {
+            // Check empty inputs
+            if (etWeight.getText().toString().isEmpty() || etValue.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Please enter all inputs", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Get user input values
+            double weight = Double.parseDouble(etWeight.getText().toString());
+            double goldValue = Double.parseDouble(etValue.getText().toString());
+
+            // Determine uruf using if-else
+            int uruf;
+            if (rbKeep.isChecked()) {
+                uruf = 85;
+            } else {
+                uruf = 200;
+            }
+
+            // Total value of all gold
+            double totalValue = weight * goldValue;
+
+            // Amount of gold that exceeds uruf
+            double zakatWeight = weight - uruf;
+            if (zakatWeight < 0) zakatWeight = 0;
+
+            // Value of zakat payable gold
+            double zakatPayable = zakatWeight * goldValue;
+
+            // 2.5% zakat
+            double zakat = zakatPayable * 0.025;
+
+            // Display output
+            tvTotalValue.setText("RM " + String.format("%.2f", totalValue));
+            tvZakatPayable.setText("RM " + String.format("%.2f", zakatPayable));
+            tvZakat.setText("RM " + String.format("%.2f", zakat));
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Invalid input. Please enter numbers only.", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
         }
-
-        //Get user input values
-        double weight = Double.parseDouble(etWeight.getText().toString());
-        double goldValue = Double.parseDouble(etValue.getText().toString());
-
-        //Determine uruf based on radio button input
-        //Keep -> 85g , Wear -> 200g
-        int uruf = rbKeep.isChecked() ? 85 : 200;
-
-        //Total value of all gold
-        double totalValue = weight * goldValue;
-
-        //Amount of gold that exceeds uruf
-        double zakatWeight = weight - uruf;
-        if (zakatWeight < 0) zakatWeight = 0; //No negative zakat weight
-
-        //Value of zakatpayable gold
-        double zakatPayable = zakatWeight * goldValue;
-
-        //2.5% zakat rate
-        double zakat = zakatPayable * 0.025;
-
-        //Display output to two decimal places
-        tvTotalValue.setText("RM " + String.format("%.2f", totalValue));
-        tvZakatPayable.setText("RM " + String.format("%.2f", zakatPayable));
-        tvZakat.setText("RM " + String.format("%.2f", zakat));
-
     }
 
     //Method to reset all input and output fields

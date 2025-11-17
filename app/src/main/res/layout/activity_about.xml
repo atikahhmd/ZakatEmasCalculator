@@ -110,10 +110,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvStudentID"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintVertical_bias="0.014" />
 
     <TextView
         android:id="@+id/tvProgramme"
@@ -127,7 +127,7 @@
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/classGroup"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintVertical_bias="0.017" />
 
     <TextView
         android:id="@+id/tvUrl"
@@ -138,7 +138,7 @@
         android:layout_marginEnd="16dp"
         android:autoLink="web"
         android:linksClickable="true"
-        android:text="GitHub: https://github.com/atikahhmd/ZakatEmasCalculator.git"
+        android:text="Explore my GitHub: https://github.com/atikahhmd/ZakatEmasCalculator.git"
         android:textColorLink="#2196F3"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
